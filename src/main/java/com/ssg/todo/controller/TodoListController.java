@@ -10,7 +10,7 @@ import java.io.IOException;
 
 import static com.ssg.todo.controller.TodoRegisterController.todoList;
 
-@WebServlet(name = "todoListController", value = "/todo/list")
+//@WebServlet(name = "todoListController", value = "/todo/list")
 public class TodoListController extends HttpServlet {
 
     @Override

@@ -1,6 +1,7 @@
 package com.ssg.todo.controller;
 
 import com.ssg.todo.dto.Todo;
+import org.springframework.stereotype.Component;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -12,7 +13,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-@WebServlet(name = "todoRegisterController", value = "/todo/register")
+//@WebServlet(name = "todoRegisterController", value = "/todo/register")
 public class TodoRegisterController extends HttpServlet {
 
     static List<Todo> todoList = new ArrayList<>();

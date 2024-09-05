@@ -12,7 +12,7 @@ import java.io.IOException;
 
 import static com.ssg.todo.controller.TodoRegisterController.todoList;
 
-@WebServlet(name = "todoModifyController", urlPatterns = "/todo/modify")
+//@WebServlet(name = "todoModifyController", urlPatterns = "/todo/modify")
 public class TodoModifyController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

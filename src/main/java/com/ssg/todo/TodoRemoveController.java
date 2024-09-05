@@ -1,27 +1,26 @@
-package com.ssg.todo.controller;
+package com.ssg.todo;
 
-import com.ssg.todo.dto.Todo;
+import com.ssg.todo.service.TodoService;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-import static com.ssg.todo.controller.TodoRegisterController.todoList;
-
 //@WebServlet(name = "todoRemoveController", urlPatterns = "/todo/remove")
 public class TodoRemoveController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String id = req.getParameter("id");
+        String tno = req.getParameter("tno");
 
-        todoList.remove(Integer.valueOf(id) - 1);
-        req.setAttribute("todo_list", todoList);
+        try {
+            TodoService.INSTANCE.delete(Long.parseLong(tno));
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
 
-        RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/todo/list.jsp");
-        dispatcher.forward(req, resp);
+        resp.sendRedirect("/todo/list");
     }
 }
